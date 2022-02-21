@@ -37,7 +37,7 @@ pipeline {
         sh "npm version --git-tag-version=false ${ReleaseVersion}"
 
         // Install
-        sh "npm ci"
+        sh "npm run ci"
 
         // Build
         sh "npm run build:prod"
@@ -46,8 +46,11 @@ pipeline {
 
     stage ('Publish') {
       steps {
+      sh "npm set //registry.npmjs.org/:_authToken ${NPM_TOKEN}"
         // Publish on npm
-        sh "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc && npm publish"
+        dir("dist/ngx-feature-viewer/") {
+          sh "npm publish"
+        }
       }
     }
   }
@@ -70,10 +73,6 @@ pipeline {
           body: '''${SCRIPT, template="groovy-html.template"}'''
         )
       }
-    }
-
-    always {
-      sh "rm .npmrc"
     }
   }
 }

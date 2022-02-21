@@ -425,8 +425,6 @@ class FeatureViewer {
     this.commons.yAxisSVG.select(".flagBackground").attr("width", this.commons.viewerOptions.margin.left);
     let flags_text = D3Selection.select(`#${this.divId}`).selectAll(".yAxis")
       .attr("width", (d) => {
-        console.log('DDDDDDDDDDDDDDDDDDDDDDDDDD')
-        console.log(d)
         // text only if space is enough
         if (this.commons.viewerOptions.mobileMode) {
           // text width depends on mobile width, flaglevel and presence of subfeatures icon
@@ -569,7 +567,6 @@ class FeatureViewer {
     this.commons.YPosition += this.commons.step;
     // if no label is given, id on flag
     if (!object.label) {object.label = object.id}
-    console.log(object)
     // deselect it if no isOpen input
     if (!object.isOpen) {
       object.isOpen = false;

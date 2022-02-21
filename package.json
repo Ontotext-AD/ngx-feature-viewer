@@ -4,12 +4,13 @@
   "description": "Represent biological data with the feature viewer library.",
   "scripts": {
     "start": "ng serve",
+    "ci": "npm ci && (cd ./projects/ngx-feature-viewer && npm ci)",
     "build": "ng build",
     "build:prod": "ng build --prod",
     "lint": "eslint './projects/ngx-feature-viewer/src/**'",
     "lint:fix": "eslint --fix './projects/ngx-feature-viewer/src/**'"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^11.1.2",
     "@angular/common": "^11.1.2",
