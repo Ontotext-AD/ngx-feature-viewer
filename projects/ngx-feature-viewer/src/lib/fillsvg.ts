@@ -232,7 +232,6 @@ class FillSVG extends ComputingFunctions {
 
       this.tagArea(feature, thisYPosition);
       // yData is data for flags, this.rectangle etc. draw the actual objects
-console.log(feature)
       this.commons.yData.push({
         hasSubFeatures: feature.subfeatures ? true : false,
         tooltip: feature.tooltip,
