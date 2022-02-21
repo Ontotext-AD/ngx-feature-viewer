@@ -49,8 +49,11 @@ pipeline {
 
     stage ('Publish') {
       steps {
+      sh "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc"
         // Publish on npm
-        sh "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc && cd dist/ngx-feature-viewer && npm publish"
+        dir("dist/ngx-feature-viewer/") {
+          sh "npm publish"
+        }
       }
     }
   }
