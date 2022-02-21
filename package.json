@@ -10,7 +10,7 @@
     "lint": "eslint './projects/ngx-feature-viewer/src/**'",
     "lint:fix": "eslint --fix './projects/ngx-feature-viewer/src/**'"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^11.1.2",
     "@angular/common": "^11.1.2",
