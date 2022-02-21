@@ -37,7 +37,7 @@ pipeline {
         sh "npm version --git-tag-version=false ${ReleaseVersion}"
 
         // Install
-        sh "npm ci"
+        sh "npm run ci"
 
         // Build
         sh "npm run build:prod"
