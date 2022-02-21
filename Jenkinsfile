@@ -33,6 +33,9 @@ pipeline {
   stages {
     stage ('Prepare') {
       steps {
+        // Login
+        sh "npm login"
+
         // Change versions
         sh "npm version --git-tag-version=false ${ReleaseVersion}"
 
