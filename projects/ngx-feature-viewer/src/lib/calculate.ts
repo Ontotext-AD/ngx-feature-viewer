@@ -155,7 +155,7 @@ class Calculate {
     }
 
     public updateSVGHeight(position) {
-      this.commons.svg.attr('height', position + 60 + 'px');
+      this.commons.svg.attr('height', position + 80 + 'px');
       this.commons.svg.select('clipPath rect').attr('height', position + 60 + 'px');
     }
 
