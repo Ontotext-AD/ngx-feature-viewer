@@ -97,7 +97,8 @@ class Commons {
   public style: any;
   public logger: any;
   public backgroundcolor: string;
-  public currentposition: number;
+  public currentPositionWithLetter: string;
+  public currentPosition: number;
   public currentzoom: number;
 
   _current_extend = null;

@@ -88,6 +88,7 @@ export interface FeatureObject {
     isOpen?: boolean;
     flagLevel?: number;
     subfeatures?: Array<FeatureObject>;
+    sequence?: string;
 }
 
 export interface FeatureData {
