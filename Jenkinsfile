@@ -46,11 +46,9 @@ pipeline {
 
     stage ('Publish') {
       steps {
-      sh "npm set //registry.npmjs.org/:_authToken ${NPM_TOKEN}"
+        sh "npm set //registry.npmjs.org/:_authToken ${NPM_TOKEN}"
         // Publish on npm
-        dir("dist/ngx-feature-viewer/") {
-          sh "npm publish"
-        }
+        sh "(cd dist/ngx-feature-viewer/ && npm publish)"
       }
     }
   }
