@@ -34,7 +34,7 @@ pipeline {
     stage ('Prepare') {
       steps {
         // Change versions
-        sh "npm version --git-tag-version=false ${ReleaseVersion}"
+        sh "(cd projects/ngx-feature-viewer && npm version --git-tag-version=false ${ReleaseVersion})"
 
         // Install
         sh "npm run ci"
