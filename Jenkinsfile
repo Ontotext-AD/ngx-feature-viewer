@@ -60,7 +60,7 @@ pipeline {
       // Commit, tag and push the changes in Git
       sh "git commit -a -m 'Release ${ReleaseVersion}'"
       sh "git tag -a v${ReleaseVersion} -m 'Release v${ReleaseVersion}'"
-      sh "git push --set-upstream origin ${branch} && git push --tags"
+      sh "git push --set-upstream --force origin ${branch} && git push --tags"
     }
 
     failure {
