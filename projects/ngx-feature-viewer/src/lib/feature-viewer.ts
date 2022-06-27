@@ -1058,7 +1058,8 @@ class FeatureViewer {
       } else {
         pos = posN.toString();
       }
-      this.commons.currentposition = pos;
+      this.commons.currentPositionWithLetter = pos;
+      this.commons.currentPosition = posN;
       if (this.commons.viewerOptions.toolbar) {
         // D3Selection.select(`${this.divId} #zoomPosition`).text(pos);
         document.querySelector(`#${this.divId} #zoomPosition`).innerHTML = pos;
@@ -1101,7 +1102,7 @@ class FeatureViewer {
   /*** PUBLIC FUNCTIONS ***/
 
   public getCurrentPosition() {
-    return this.commons.currentposition;
+    return this.commons.currentPositionWithLetter;
   }
 
   public getCurrentZoom() {

@@ -6,6 +6,9 @@
 // non-svg objects in svg
 foreignObject > body {
   overflow: visible;
+  max-width: 300px;
+  max-height: 2em;
+  line-height: 1em;
 }
 
 // header

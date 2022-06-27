@@ -1,6 +1,7 @@
 
 import Calculate from './calculate';
 import {D3Selection} from './custom-d3';
+import {cloneDeep} from 'lodash-es';
 
 class Tool extends Calculate {
   public colorSelectedFeat(feat, object, divId) {
@@ -93,6 +94,10 @@ class Tool extends Calculate {
             }
           }
           tooltip_message += '</p>';
+
+          if (thing.hasOwnProperty('position')) {
+            tooltip_message += thing.position
+          }
         }
         // case of feature
         // if (thing.hasOwnProperty('tooltip')) {
@@ -262,7 +267,15 @@ class Tool extends Calculate {
             tooltip_message = getMessage(object);
           } else {
             // e.g. rect, arrow
-            tooltip_message = getMessage(pD);
+            const feature = this.getHoveredFeature(pD.id);
+            if (feature && feature.sequence) {
+              const letter = this.getHoveredLetter(feature);
+              const clonedPD = cloneDeep(pD);
+              clonedPD.position = `Position: ${this.commons.currentPosition}${letter}`
+              tooltip_message = getMessage(clonedPD);
+            } else {
+              tooltip_message = getMessage(pD);
+            }
           }
           return tooltip_message;
         };
@@ -400,6 +413,14 @@ class Tool extends Calculate {
 
       return tooltip;
     };
+  }
+
+  private getHoveredFeature(id) {
+    return this.commons.features.find(feature => id.includes(feature.id));
+  }
+
+  private getHoveredLetter(feature) {
+    return feature.sequence && feature.sequence[this.commons.currentPosition -1] || "";
   }
 
   constructor(commons: {}) {

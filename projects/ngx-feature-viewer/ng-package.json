@@ -19,7 +19,9 @@
     "npx",
     "sass",
     "typed-css-modules",
-    "underscore"
+    "underscore",
+    "@types/lodash-es",
+    "lodash-es"
     ],
   "assets": ["./assets"]
 }

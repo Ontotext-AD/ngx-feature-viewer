@@ -10,8 +10,12 @@ class ComputingFunctions {
             if (this.commons.scaling([d.x + 0.4]) - this.commons.scaling([d.x - 0.4]) < 2) return 2;
             else return this.commons.scaling([d.x + 0.4]) - this.commons.scaling([d.x - 0.4]);
         }*/
-      return (this.commons.scaling([d.y + 0.4]) - this.commons.scaling([d.x - 0.4]));
-    }
+      // show small rectangle when pointing single position
+      if (d.x === d.y) {
+        return 4;
+      }
+      return (this.commons.scaling([d.y]) - this.commons.scaling([d.x]));
+    };
 
     public rectX = (object) => {
       /*if (object.x === object.y) {

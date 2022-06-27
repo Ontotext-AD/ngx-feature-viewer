@@ -399,7 +399,6 @@ class FillSVG extends ComputingFunctions {
                 .attr('y', -6)
                 .attr('width', '100%')
                 .attr('height', '100%')
-                .attr('height', '100%')
                 .append('xhtml:body')
                 .style('margin', '0')
                 .attr('id', bt.id)
